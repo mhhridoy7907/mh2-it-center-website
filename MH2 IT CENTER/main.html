@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MH2 IT Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="icone/MH2 IT CENTER.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h2>MH2 IT Center</h2>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#academic">Academic System</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Learn IT Skills & Advance Your Career</h1>
+      <p>Professional IT training center for students & professionals.</p>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About MH2 IT Center</h2>
+      <p>MH2 IT Center provides professional IT training in web development, graphic design, programming, and full online classes for students worldwide. Our mission is to empower students with practical skills for real-world careers.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>IT Training</h3>
+          <p>Professional courses for students & employees.</p>
+        </div>
+        <div class="card">
+          <h3>Hardware Repair</h3>
+          <p>Computer & laptop repair services.</p>
+        </div>
+        <div class="card">
+          <h3>IT Consultancy</h3>
+          <p>Guidance for projects & career advice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic System Section -->
+  <section id="academic">
+    <div class="container">
+      <h2>Academic System - Full Online Classes</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Live Online Classes</h3>
+          <p>Interactive sessions with instructors in real-time.</p>
+        </div>
+        <div class="card">
+          <h3>Recorded Lectures</h3>
+          <p>Access lectures anytime for flexible learning.</p>
+        </div>
+        <div class="card">
+          <h3>Assignments & Projects</h3>
+          <p>Hands-on exercises to strengthen your skills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team">
+    <div class="container">
+      <h2>Our Team</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Mr. Murad Hasan Hridoy</h3>
+          <p>Founder & Lead Instructor</p>
+        </div>
+        <div class="card">
+          <h3>Ms. Sumaiya Rahman</h3>
+          <p>Graphic Design Expert</p>
+        </div>
+        <div class="card">
+          <h3>Mr. Rahim Khan</h3>
+          <p>Web Development Instructor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Phone Number" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Feedback / Reviews Section -->
+  <section id="feedback">
+    <div class="container">
+      <h2>Reviews & Feedback</h2>
+      <div class="testimonial">
+        <p>"MH2 IT Center is amazing! The online classes made learning easy and fun."</p>
+        <h4>- Rahim, Student</h4>
+      </div>
+      <div class="testimonial">
+        <p>"I improved my web development skills and received professional guidance."</p>
+        <h4>- Sumaiya, Student</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 MH2 IT Center. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Smooth Scroll -->
+  <script>
+    const links = document.querySelectorAll('header nav a');
+    links.forEach(link => {
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
+
+</body>
+</html>
