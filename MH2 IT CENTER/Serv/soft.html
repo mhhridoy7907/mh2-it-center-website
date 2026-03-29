@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Development Services</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#000000;
+  color:#fff;
+  text-align:center;
+}
+
+/* ===== TITLE ===== */
+header{
+  padding:30px 10px;
+  font-size:32px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+/* ===== SOFTWARE TYPES SECTION ===== */
+.section{
+  max-width:900px;
+  margin:40px auto;
+  padding:30px;
+  background:#000000;
+  border-radius:14px;
+  box-shadow:0 0 20px #00f7ffaf;
+}
+
+.section h2{
+  margin-bottom:20px;
+  color:#00f6ff;
+}
+
+/* ===== TYPES GRID ===== */
+.types{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.type-box{
+  padding:15px;
+  background:#000000;
+  border:1px solid #00f6ff;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.type-box:hover{
+  box-shadow: 0 0 15px #00f6ff, 0 0 25px #00a2ff;
+  transform:translateY(-3px);
+}
+
+/* ===== FRAMES GRID ===== */
+.container{
+  display:grid;
+  grid-template-columns:repeat(3, 350px);
+  justify-content:center;
+  gap:25px;
+  padding-bottom:40px;
+}
+
+
+/* ===== ORDER FORM ===== */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+input, textarea{
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#000000;
+  color:#fff;
+  border:1px solid #00f6ff;
+}
+
+button.submit{
+  background:#00f6ff;
+  color:#000000;
+  font-weight:bold;
+  border:none;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button.submit:hover{
+  background:#00e5ff;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  padding:12px 20px;
+  border:none;
+  border-radius:8px;
+  background:#00f6ff;
+  color:#000000;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 10px #00f6ff;
+}
+
+.back-btn:hover{
+  background:#00e5ff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .container{
+    grid-template-columns:repeat(2,1fr);
+    justify-items:center;
+  }
+}
+
+@media(max-width:760px){
+  .container{
+    grid-template-columns:1fr;
+    justify-items:center;
+  }
+  .types{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>SOFTWARE DEVELOPMENT SERVICES</header>
+
+<!-- SOFTWARE TYPES -->
+<div class="section">
+  <h2>Software Types We Build</h2>
+  <div class="types">
+    <div class="type-box">Desktop Applications</div>
+    <div class="type-box">Web Applications</div>
+    <div class="type-box">Mobile Apps</div>
+    <div class="type-box">Enterprise Software</div>
+    <div class="type-box">Custom Software</div>
+    <div class="type-box">AI & ML Solutions</div>
+  </div>
+</div>
+
+</div>
+
+<!-- ORDER SECTION -->
+<div class="section">
+  <h2>Order Your Software</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Software Type (Desktop / Web / Mobile etc)">
+    <textarea rows="4" placeholder="Project Details"></textarea>
+    <button class="submit">Send Order</button>
+  </form>
+</div>
+
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+</body>
+</html>
