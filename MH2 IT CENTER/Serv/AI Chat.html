@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chat Bot Services</title>
+<link rel="stylesheet" href="style/ai chat.css">
+</head>
+<body>
+
+<header>AI CHAT BOT SERVICES</header>
+
+<div class="chat-grid">
+
+<!-- Chat Bot 1 -->
+<div>
+  <div class="chat" id="chat1" style="border-color:#ff6b6b;">
+    <div class="header" style="border-color:#ff6b6b; color:#ff6b6b;" onclick="showProfile(1)">
+      <img src="https://i.pinimg.com/736x/e5/fc/90/e5fc90637f0c18d81ed2beb1cb8cd9cc.jpg"><h3>Maya AI GF</h3>
+    </div>
+    <div class="messages" id="messages1"></div>
+    <div class="input" style="border-color:#ff6b6b;">
+      <input id="input1" placeholder="type...">
+      <button onclick="send(1)" style="background:#ff6b6b;">➤</button>
+    </div>
+  </div>
+  <div class="chat-type" style="color:#ff6b6b;">Virtual Girlfriend Bot</div>
+</div>
+
+<!-- Chat Bot 2 -->
+<div>
+  <div class="chat" id="chat2" style="border-color:#1dd1a1;">
+    <div class="header" style="border-color:#1dd1a1; color:#1dd1a1;" onclick="showProfile(2)">
+      <img src="https://i.pinimg.com/1200x/b2/07/f0/b207f09d9f2a2a91eaa4a9d908ba32e1.jpg"><h3>Robo Helper</h3>
+    </div>
+    <div class="messages" id="messages2"></div>
+    <div class="input" style="border-color:#1dd1a1;">
+      <input id="input2" placeholder="type...">
+      <button onclick="send(2)" style="background:#1dd1a1;">➤</button>
+    </div>
+  </div>
+  <div class="chat-type" style="color:#1dd1a1;">Customer Support Bot</div>
+</div>
+
+<!-- Chat Bot 3 -->
+<div>
+  <div class="chat" id="chat3" style="border-color:#ff9f43;">
+    <div class="header" style="border-color:#ff9f43; color:#ff9f43;" onclick="showProfile(3)">
+      <img src="https://i.pinimg.com/736x/18/18/54/1818544ed0fabc2b04d98d0b40b27394.jpg"><h3>EduBot</h3>
+    </div>
+    <div class="messages" id="messages3"></div>
+    <div class="input" style="border-color:#ff9f43;">
+      <input id="input3" placeholder="type...">
+      <button onclick="send(3)" style="background:#ff9f43;">➤</button>
+    </div>
+  </div>
+  <div class="chat-type" style="color:#ff9f43;">Education Bot</div>
+</div>
+
+<!-- Chat Bot 4 -->
+<div>
+  <div class="chat" id="chat4" style="border-color:#54a0ff;">
+    <div class="header" style="border-color:#54a0ff; color:#54a0ff;" onclick="showProfile(4)">
+      <img src="https://i.pinimg.com/736x/d7/4f/11/d74f11f94e3cfeb17a495a3f817a6cd0.jpg"><h3>HealthBot</h3>
+    </div>
+    <div class="messages" id="messages4"></div>
+    <div class="input" style="border-color:#54a0ff;">
+      <input id="input4" placeholder="type...">
+      <button onclick="send(4)" style="background:#54a0ff;">➤</button>
+    </div>
+  </div>
+  <div class="chat-type" style="color:#54a0ff;">Health Bot</div>
+</div>
+
+<!-- Chat Bot 5 -->
+<div>
+  <div class="chat" id="chat5" style="border-color:#5f27cd;">
+    <div class="header" style="border-color:#5f27cd; color:#5f27cd;" onclick="showProfile(5)">
+      <img src="https://i.pinimg.com/736x/b9/92/ca/b992ca3c43525171d97e74e19b8aebd1.jpg"><h3>SalesBot</h3>
+    </div>
+    <div class="messages" id="messages5"></div>
+    <div class="input" style="border-color:#5f27cd;">
+      <input id="input5" placeholder="type...">
+      <button onclick="send(5)" style="background:#5f27cd;">➤</button>
+    </div>
+  </div>
+  <div class="chat-type" style="color:#5f27cd;">Sales Assistant Bot</div>
+</div>
+
+<!-- Chat Bot 6 -->
+<div>
+  <div class="chat" id="chat6" style="border-color:#10ac84;">
+    <div class="header" style="border-color:#10ac84; color:#10ac84;" onclick="showProfile(6)">
+      <img src="https://i.pinimg.com/736x/8c/cd/bb/8ccdbb9c6a72b89708f65494ca981370.jpg"><h3>FunBot</h3>
+    </div>
+    <div class="messages" id="messages6"></div>
+    <div class="input" style="border-color:#10ac84;">
+      <input id="input6" placeholder="type...">
+      <button onclick="send(6)" style="background:#10ac84;">➤</button>
+    </div>
+  </div>
+  <div class="chat-type" style="color:#10ac84;">Entertainment Bot</div>
+</div>
+
+</div>
+
+<!-- Overlays -->
+<div class="overlay" id="overlay">
+  <span class="close" onclick="overlay.classList.remove('show')">×</span>
+  <img id="overlayImg" src="">
+  <h2 id="overlayName"></h2>
+  <p id="overlayType"></p>
+</div>
+
+<!-- ORDER -->
+<div class="order-section">
+  <h2>Order Your Custom Chat Bot</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Chat Bot Type">
+    <textarea rows="4" placeholder="Project Details"></textarea>
+    <button type="submit">Send Order</button>
+  </form>
+</div>
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+<script>
+const bots=[
+  {name:"Maya AI GF",color:"#ff6b6b",type:"Virtual Girlfriend Bot",img:"https://i.pinimg.com/736x/e5/fc/90/e5fc90637f0c18d81ed2beb1cb8cd9cc.jpg"},
+  {name:"Robo Helper",color:"#1dd1a1",type:"Customer Support Bot",img:"https://i.pinimg.com/1200x/b2/07/f0/b207f09d9f2a2a91eaa4a9d908ba32e1.jpg"},
+  {name:"EduBot",color:"#ff9f43",type:"Education Bot",img:"https://i.pinimg.com/736x/18/18/54/1818544ed0fabc2b04d98d0b40b27394.jpg"},
+  {name:"HealthBot",color:"#54a0ff",type:"Health Bot",img:"https://i.pinimg.com/736x/d7/4f/11/d74f11f94e3cfeb17a495a3f817a6cd0.jpg"},
+  {name:"SalesBot",color:"#5f27cd",type:"Sales Assistant Bot",img:"https://i.pinimg.com/736x/b9/92/ca/b992ca3c43525171d97e74e19b8aebd1.jpg"},
+  {name:"FunBot",color:"#10ac84",type:"Entertainment Bot",img:"https://i.pinimg.com/736x/8c/cd/bb/8ccdbb9c6a72b89708f65494ca981370.jpg"}
+];
+
+function addMessage(chatId,text,type){
+  const chat=document.getElementById("messages"+chatId);
+  const d=document.createElement("div");
+  d.className="msg "+type;
+  d.textContent=text;
+  chat.appendChild(d);
+  chat.scrollTop=chat.scrollHeight;
+}
+
+function send(chatId){
+  const input=document.getElementById("input"+chatId);
+  const text=input.value.trim();
+  if(!text) return;
+  addMessage(chatId,text,"user");
+  input.value="";
+  setTimeout(()=>{
+    addMessage(chatId,"This is "+bots[chatId-1].name+" responding...","ai");
+  },700);
+}
+
+function showProfile(id){
+  const bot=bots[id-1];
+  const overlay=document.getElementById("overlay");
+  document.getElementById("overlayImg").src=bot.img;
+  document.getElementById("overlayName").textContent=bot.name;
+  document.getElementById("overlayType").textContent=bot.type;
+  overlay.style.borderColor=bot.color;
+  overlay.classList.add("show");
+}
+</script>
+
+</body>
+</html>
