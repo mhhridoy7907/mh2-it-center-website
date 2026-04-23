@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Now</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#0f0f0f,#001f2f,#000);
+}
+
+.book-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:12px 20px;
+  background:linear-gradient(90deg,#00F6FF,#7CFFCB);
+  color:#000;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:700;
+  box-shadow:0 0 20px #00F6FF;
+  transition:0.3s;
+}
+
+.book-btn:hover{
+  transform:scale(1.08);
+}
+
+.box{
+  width:400px;
+  padding:30px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 0 30px rgba(0,246,255,0.25);
+}
+
+h2{
+  text-align:center;
+  color:#00F6FF;
+  margin-bottom:18px;
+}
+
+input, select{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:none;
+  border-radius:10px;
+  outline:none;
+  background:rgba(255,255,255,0.1);
+  color:#000000;
+}
+
+input::placeholder{
+  color:#ccc;
+}
+
+.payment{
+  margin-top:10px;
+  padding:10px;
+  border-radius:12px;
+  background:rgba(0,246,255,0.08);
+  border:1px solid rgba(0,246,255,0.3);
+}
+
+.payment h3{
+  color:#7CFFCB;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.pay-options{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.pay-options label{
+  flex:1;
+  text-align:center;
+  padding:8px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.1);
+  color:#000000;
+  cursor:pointer;
+  font-size:13px;
+  transition:0.3s;
+}
+
+.pay-options input{
+  display:none;
+}
+
+.pay-options input:checked + label{
+  background:linear-gradient(90deg,#00F6FF,#7CFFCB);
+  color:#000;
+  font-weight:bold;
+}
+
+.btn{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  background:linear-gradient(90deg,#00F6FF,#7CFFCB);
+  color:#000;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<button class="book-btn" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+  Book Now
+</button>
+
+<div class="box" id="form">
+
+<h2>Book Service</h2>
+
+<form action="book.php" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="phone" placeholder="Phone Number" required>
+
+<select name="service" required>
+  <option value="">Select Service</option>
+  <option>Web Design</option>
+  <option>IT Support</option>
+  <option>Training</option>
+</select>
+
+<input type="date" name="date" required>
+
+<div class="payment">
+  <h3>Select Payment Method</h3>
+
+  <div class="pay-options">
+
+    <div>
+      <input type="radio" id="bkash" name="pay" value="bKash" required>
+      <label for="bkash">bKash</label>
+    </div>
+
+    <div>
+      <input type="radio" id="nagad" name="pay" value="Nagad">
+      <label for="nagad">Nagad</label>
+    </div>
+
+    <div>
+      <input type="radio" id="card" name="pay" value="Card">
+      <label for="card">Card</label>
+    </div>
+
+  </div>
+</div>
+
+<button class="btn" type="submit">Confirm Booking</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
