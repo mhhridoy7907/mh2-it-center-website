@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>MH2 IT Center - Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+:root{
+    --main:#00e5ff;
+    --dark:#050816;
+    --glass:rgba(255,255,255,0.05);
+    --border:rgba(255,255,255,0.12);
+    --gray:#9aa4c7;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:var(--dark);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:#fff;
+}
+
+/* glow */
+body::before,
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    filter:blur(120px);
+    z-index:-1;
+}
+body::before{
+    background:rgba(0,229,255,0.15);
+    top:-200px;
+    left:-150px;
+}
+body::after{
+    background:rgba(140,0,255,0.12);
+    bottom:-200px;
+    right:-150px;
+}
+
+/* BOX */
+.box{
+    width:400px;
+    padding:35px;
+    background:var(--glass);
+    border:1px solid var(--border);
+    border-radius:25px;
+    backdrop-filter:blur(18px);
+    text-align:center;
+    box-shadow:0 0 40px rgba(0,229,255,0.08);
+    position:relative;
+}
+
+/* PROFILE */
+.profile{
+    display:none;
+    width:650px;
+    height:85vh;
+    overflow-y:auto;
+    padding:25px;
+}
+
+/* BACK BUTTON FIXED CORNER */
+.back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--border);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:13px;
+    z-index:999;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:rgba(0,229,255,0.2);
+    transform:scale(1.05);
+}
+
+/* scrollbar */
+.profile::-webkit-scrollbar{
+    width:6px;
+}
+.profile::-webkit-scrollbar-thumb{
+    background:var(--main);
+    border-radius:10px;
+}
+
+h2{margin-bottom:10px;font-size:28px;}
+h2 span{color:var(--main);}
+p{color:var(--gray);font-size:14px;}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:none;
+    border-radius:12px;
+    background:#0d1735;
+    color:#fff;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--main),#0099ff);
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    font-family:'Poppins',sans-serif;
+}
+
+button i{
+    margin-right:8px;
+}
+
+button:hover{transform:translateY(-2px);}
+
+.error{
+    color:#ff4d4d;
+    margin-top:10px;
+    font-size:13px;
+}
+
+/* avatar */
+.avatar{
+    width:95px;
+    height:95px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--main);
+    margin-top:10px;
+}
+
+/* info */
+.info{
+    margin-top:15px;
+    display:grid;
+    gap:10px;
+}
+.info p{
+    background:rgba(255,255,255,0.04);
+    padding:12px;
+    border-radius:12px;
+}
+
+/* certificate */
+.certificate-box{
+    margin-top:20px;
+    border-radius:15px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:#000;
+    padding:10px;
+}
+
+.certificate-box img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+}
+
+/* loader */
+.loader{
+    display:none;
+    margin-top:12px;
+}
+.spinner{
+    width:22px;
+    height:22px;
+    border:3px solid rgba(255,255,255,0.2);
+    border-top:3px solid var(--main);
+    border-radius:50%;
+    animation:spin 0.8s linear infinite;
+    margin:auto;
+}
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* mobile */
+@media(max-width:700px){
+    .box, .profile{width:92%;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="box" id="loginBox">
+    <h2>MH2 <span>Login</span></h2>
+    <p>Access your student dashboard</p>
+
+    <input id="id" placeholder="Enter ID">
+    <input id="pass" type="password" placeholder="Enter Password">
+
+    <button id="loginBtn" onclick="login()">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+    </button>
+
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="error" id="error"></div>
+
+    
+</div>
+
+<!-- PROFILE -->
+<div class="box profile" id="profileBox">
+
+
+    <div class="profile-header">
+        <h2>Student <span>Profile</span></h2>
+        <img id="photo" class="avatar">
+    </div>
+
+    <div class="info">
+        <p><b>Name:</b> <span id="name"></span></p>
+        <p><b>Status:</b> <span id="status"></span></p>
+        <p><b>Result:</b> <span id="result"></span></p>
+    </div>
+
+    <div class="certificate-box">
+        <img id="cert">
+    </div>
+
+</div>
+
+<script>
+
+const API_URL = "https://script.google.com/macros/s/AKfycbwuH3MNlFxm35sXtuPdQ5yGgjyLfDEV2FoAcBJlLzHvNiZJX2cd56ca_12VLi1PfcDz/exec";
+
+async function login(){
+
+    let id = document.getElementById("id").value;
+    let pass = document.getElementById("pass").value;
+
+    let btn = document.getElementById("loginBtn");
+    let loader = document.getElementById("loader");
+
+    btn.disabled = true;
+    loader.style.display = "block";
+    document.getElementById("error").innerText = "";
+
+    try{
+        let res = await fetch(API_URL + "?id=" + id + "&pass=" + pass);
+        let data = await res.json();
+
+        if(data.status === "id_wrong"){
+            document.getElementById("error").innerText = "❌ Invalid ID";
+        }
+        else if(data.status === "pass_wrong"){
+            document.getElementById("error").innerText = "❌ Wrong Password";
+        }
+        else if(data.status === "success"){
+
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("profileBox").style.display = "block";
+
+            document.getElementById("photo").src = data.photo;
+            document.getElementById("name").innerText = data.name;
+            document.getElementById("status").innerText = data.statusText;
+            document.getElementById("result").innerText = data.result;
+            document.getElementById("cert").src = data.certificate;
+        }
+
+    }catch(err){
+        document.getElementById("error").innerText = "Server Error!";
+    }
+
+    btn.disabled = false;
+    loader.style.display = "none";
+}
+
+
+
+</script>
+
+</body>
+</html>
