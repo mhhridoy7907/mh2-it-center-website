@@ -38,6 +38,9 @@ A **professional, fully responsive IT training center website** built with **Rea
 - **Optional Backend**: Firebase, Supabase, or any API for courses & testimonials  
 
 ---
+## flow chart
+### student login flow chart
+![privew](Login.jpg)
 
 
 ## 📁 Folder Structure
